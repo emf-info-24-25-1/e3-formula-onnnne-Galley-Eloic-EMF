@@ -5,6 +5,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class Pneu {
+    //MR Tu as oublié le mot-clé final pour indiquer que ces valeurs ne changeront pas
     private TypePneu type;
     private double pression;
 

@@ -7,6 +7,7 @@ import java.util.Locale;
 public class Pilote {
 
     public final static int NOMBRE_PNEUS_EN_RESERVE = 16;
+    // MR Tu as oublié le mot-clé final pour indiquer que cette valeur ne changera pas pour les deux premiers attributs
     private String nom;
     private String nationalite;
     private int nombrePoints; // stat
@@ -51,8 +52,10 @@ public class Pilote {
     }
 
     public Pneu retirerPneuEnReserve(TypePneu type) {
+        //MR Pas nécessaire un nouveau pneu, on peut commencer avec un pneu vide (null)
         Pneu pneuRetirer = new Pneu(null, 0);
         for (int i = 0; i < pneusEnReserve.length; i++) {
+            //MR Il faut aussi vérifier si pneusEnReserve[i] n'est pas null avant de comparer les types
             if (pneusEnReserve[i].getType() == type) {
                 pneuRetirer = pneusEnReserve[i];
                 pneusEnReserve[i] = null;
@@ -83,9 +86,12 @@ public class Pilote {
     }
 
     public Pneu[] getPneusEnReserveSansTrous() {
+        //MR C'est pas mal, mais il faut créer un tableau de la taille du nombre de pneus en réserve il faut donc compter le nombre de pneus non null avant
+        //Tu peux utiliser la méthode getNombrePneusEnReserve pour connaître la taille du tableau
         Pneu[] listeSansTrou = new Pneu[NOMBRE_PNEUS_EN_RESERVE];
         for (int i = 0; i < pneusEnReserve.length; i++) {
             if (pneusEnReserve[i] != null) {
+                //MR Pourquoi tu recréer une boucle ici pour copier les pneus ?
                 for (int j = 0; j < listeSansTrou.length; j++) {
                     listeSansTrou[j] = pneusEnReserve[j];
                     
