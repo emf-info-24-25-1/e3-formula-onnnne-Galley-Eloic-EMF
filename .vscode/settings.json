@@ -12,5 +12,9 @@
         "markdown": false,
         "scminput": false,
         "java": false
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "",
+        "textMateRules": []
     }
 }
